@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+  {% include article-theme-css.html %}
+
+  <body>
+    {% include header.html %}
+    <div class="article-container cover-container cover-container-dark">
+      <div class="cover-copy">
+      <!--         { include article-svg-cover-title.html } -->
+        <div class="cover-subtitle">June 2015</div>
+      </div>
+      <div class="page-cover">
+        <div class="cover-illustration">
+        </div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="article-container">
+          {{ content }}
+          <div class="credits"></div>
+        </div>
+      </div>
+    </div>
+
+    {% include comment_template.html %}
+
+  </body>
+</html>

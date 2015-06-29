@@ -1,0 +1,145 @@
+{% capture image_url %}/assets/images/{{ page.date | date: "%Y/%m/%d" }}/{% endcapture %}
+
+<!-- GALLERY 5 -->
+{% if include.url_5 %}
+<div class="gallery gallery-5">
+  <div class="grid-row">
+    <div class="grid-cell grid-half">
+      <div class="image-container image-container--3-2">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_1}}"/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-cell grid-half">
+      <div class="image-container image-container--3-2">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_2}}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-cell grid-third">
+      <div class="image-container image-container--3-2">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_3}}"/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-cell grid-third">
+      <div class="image-container image-container--3-2">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_4}}"/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-cell grid-third">
+      <div class="image-container image-container--3-2">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_5}}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% elsif include.url_4 %}
+<div class="gallery gallery-4">
+  <div class="grid-row">
+    <div class="grid-cell grid-full">
+      <div class="image-container image-container--2-1">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_1 }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-cell grid-third">
+      <div class="image-container image-container--16-9">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_2 }}"/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-cell grid-third">
+      <div class="image-container image-container--16-9">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_3 }}"/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-cell grid-third">
+      <div class="image-container image-container--16-9">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_4 }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% elsif include.url_3 %}
+<div class="gallery gallery-3">
+  <div class="grid-row">
+    <div class="grid-cell grid-full">
+      <div class="image-container image-container--16-9">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_1 }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-cell grid-half">
+      <div class="image-container image-container--3-2">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_2 }}"/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-cell grid-half">
+      <div class="image-container image-container--3-2">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_3 }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- GALLERY 2 -->
+{% elsif include.url_2 %}
+<div class="gallery gallery-2">
+  <div class="grid-row">
+    <div class="grid-cell grid-full">
+      <div class="image-container image-container--16-9">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_1 }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-cell grid-full">
+      <div class="image-container image-container--16-9">
+        <div class="image-aspect-adjust">
+          <img src="{{ image_url }}/{{ include.url_2 }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="grid-row">
+  <div class="grid-cell grid-full">
+    <div class="image-container image-container--16-9">
+      <div class="image-aspect-adjust">
+        <img src="{{ image_url }}/{{ include.url_1 }}"/>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+

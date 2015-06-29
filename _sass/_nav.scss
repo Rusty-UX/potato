@@ -1,0 +1,33 @@
+.main-nav {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  line-height: 4rem;
+  height: 400px;
+}
+
+.main-nav .link {
+  padding-bottom: 4px;
+  margin: 0 2rem;
+  color: hsl(0, 0%, 41%);
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.5rem;
+  -webkit-user-select: none;
+}
+
+.main-nav .selected {
+  border-bottom: 1px solid white;
+}
+
+.main-nav .link:hover{
+  color: black;
+}
+
+.main-nav .link:active{
+  -webkit-transform: translateY(2px);
+}
+

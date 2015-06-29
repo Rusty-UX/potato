@@ -1,0 +1,43 @@
+.full-width-figure{
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  width: calc(100% + 8rem);
+  margin-left: -4rem;
+  @media only screen and (max-width: $medium-device){
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+  }
+
+  .caption-container{
+    margin: 0 4rem;
+    @media only screen and (max-width: $medium-device){
+      margin: 0 2rem;
+    }
+  }
+
+  .caption-container.right-aligned{
+    text-align: right;
+  }
+
+  .caption-container.center-aligned{
+    text-align: center;
+  }
+
+  .caption-title{
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    border-top: 1px solid $grey-color;
+    margin-top: 1.6rem;
+    display: inline-block;
+    font-weight: bold;
+    padding-top: 0.8rem;
+  }
+
+  .caption-subhead{
+    margin-top: 0.25rem;
+    display: inline-block;
+    font-size: 0.75rem;
+    max-width: 25rem;
+    line-height: $line-height-standard;
+  }
+}

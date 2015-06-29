@@ -1,0 +1,138 @@
+---
+layout: default
+hero_image_url: "assets/forage.jpg"
+color_h: "180"
+color_s: "84"
+color_l: "24"
+---
+
+<script>
+
+$(function() {
+
+  var BLUR_RADIUS = 10;
+
+  var canvas = document.querySelector('[data-canvas]');
+  var canvasContext = canvas.getContext('2d');
+
+  var image = new Image();
+  image.src = "{{page.hero_image_url}}";
+
+  var drawBlur = function() {
+    var WINDOW_WIDTH = $(window).width();
+    $('[data-canvas]').attr("width",WINDOW_WIDTH);
+    var height = Math.min(WINDOW_WIDTH*0.5625, 600);
+    $('[data-canvas],.canvas-bg').attr("height", height);
+
+    var w = canvas.width;
+    var h = canvas.height;
+    canvasContext.drawImage(image, 0, 0, w, h);
+    stackBlurCanvasRGBA('heroCanvas', 0, 0, w, h, BLUR_RADIUS);
+  };
+
+  image.onload = function() {
+    drawBlur();
+  }
+
+  window.onresize = function() {
+    drawBlur();
+  }
+
+});
+</script>
+<style>
+  .article-container .article-meta,
+  .article-container h2{
+    color: hsl( {{ page.color_h }}, {{ page.color_s }}%, {{ page.color_l }}%);
+  }
+
+  .article-container li:before {
+    color: hsl( {{ page.color_h }}, {{ page.color_s }}%, {{ page.color_l }}%);
+  }
+
+  .main-nav {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    line-height: 4rem;
+    height: 400px;
+    background: linear-gradient(180deg, hsla( {{ page.color_h }}, {{ page.color_s }}%, {{ page.color_l | minus: 40 }}%, 0.6) 50%, hsla( {{ page.color_h }}, {{ page.color_s }}%, {{ page.color_l }}%, 0)  100%);
+}
+  .main-nav span{
+    padding-bottom: 4px;
+    margin: 0 2rem;
+    color: white;
+  }
+
+  .main-nav .selected{
+    border-bottom: 1px solid white;
+  }
+</style>
+<div class="canvas-container">
+  <div class="canvas-bg">
+    <div class="bg-gradient"></div>
+    <canvas data-canvas class="hero__background" width="200" height="400" id="heroCanvas"></canvas>
+  </div>
+</div>
+<div class="main-nav">
+  <span>Home</span>
+<span class="selected">Blog</span>
+<span>Portfolio</span>
+  <span>About</span>
+</div>
+<div class="article-container">
+  <img id="image-color-picker" style="display:none" src="{{ page.hero_image_url }}"/>
+  <div class="image-block image-header image-3-1" style="background-image:url('{{page.hero_image_url}}')"></div>
+  <header class="article-heading">
+    <h1>Getting started with Git</h1>
+    <span class="article-meta clearfix">
+      <span class="author">Russell Baylis</span>
+      <span class="date">June 12th, 2015</span>
+    </span>
+  </header>
+
+  <p>Aquaero is an interactive art experience that allows users to create creatures using their hands and other objects. Once these generated creatures have been made, they can be moved around by swiping across the table.</p>
+  <p>Aquaero is an interactive art experience that allows users to create creatures using their hands and other objects. Once these generated creatures have been made, they can be moved around by swiping across the table.</p>
+  <p>Aquaero is an interactive art experience that allows users to create creatures using their hands and other objects. Once these generated creatures have been made, they can be moved around by swiping across the table.</p>
+  <p>The creatures interact with the environment through audio events triggered by the audience, such as bubbles or lightning strikes. Flocking creatures such as jellyfish, fish and birds can be found in levels and add to the interaction. Audio and Environments transition seamlessly as the characters move around.</p>
+  <div class="image-block image-block-body image-2-1" style="background-image:url('http://i.imgur.com/KZLvp64.jpg')"></div>
+  <blockquote>Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+  <ul>
+    <li>Option 1</li>
+    <li>Option 2</li>
+    <li>Option 3</li>
+    <li>Option 4</li>
+  </ul>
+  <h2>Do some other stuff</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adip*isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.</p>
+  <code>
+  .article-heading {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #efefef;
+  }
+
+  </code>
+</div>
+<!-- <div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div> -->

@@ -1,0 +1,30 @@
+h1, h2{
+  font-family: "Tiempos";
+  font-weight: 300;
+}
+
+h1{
+  margin-bottom: 1rem;
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -webkit-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}
+
+p{
+  font-size: 1.125rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+a{
+  border-bottom: 3px solid hsl(195, 83%, 84%);
+  box-shadow: inset 0 -5px 0 hsl(195, 83%, 84%);
+  text-decoration: none;
+  color: $text-color;
+}
+
+a:hover{
+  background-color: hsl(195, 83%, 84%);
+}

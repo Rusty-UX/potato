@@ -1,0 +1,7 @@
+<div class="cover-art">
+  <div class="svg-ratio-hack" style="padding-bottom:{{ page.viewbox_cover_y | divided_by: page.viewbox_cover_x | times: 100 }}%">
+    <svg class="svg-cover-title" x="0px" y="0px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 {{ page.viewbox_cover_x }} {{ page.viewbox_cover_y }} ">
+      {{ page.cover_art }}
+    </svg>
+  </div>
+</div>

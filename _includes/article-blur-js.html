@@ -1,0 +1,35 @@
+{% capture header_image_url %}/assets/images/{{ page.date | date: "%Y/%m/%d" }}/{{ page.hero_image_url }}{% endcapture %}
+<script>
+
+$(function() {
+
+  var BLUR_RADIUS = 8;
+
+  var canvas = document.querySelector('[data-canvas]');
+  var canvasContext = canvas.getContext('2d');
+
+  var image = new Image();
+  image.src = "{{ header_image_url }}";
+
+  var drawBlur = function() {
+    var WINDOW_WIDTH = $(window).width();
+    $('[data-canvas]').attr("width",WINDOW_WIDTH);
+    var height = Math.min(WINDOW_WIDTH*0.5625, 600);
+    $('[data-canvas],.canvas-bg').attr("height", height);
+
+    var w = canvas.width;
+    var h = canvas.height;
+    canvasContext.drawImage(image, 0, 0, w, h);
+    stackBlurCanvasRGBA('heroCanvas', 0, 0, w, h, BLUR_RADIUS);
+  };
+
+  image.onload = function() {
+    drawBlur();
+  }
+
+  window.onresize = function() {
+    drawBlur();
+  }
+
+});
+</script>

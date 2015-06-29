@@ -1,0 +1,104 @@
+.article-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  opacity: 1;
+}
+
+p:first-child:first-letter {
+  font-size: 4rem;
+  position: absolute;
+  float: left;
+  line-height: 0.4;
+  padding-bottom: 0.5rem;
+  margin-top: 0.7rem;
+  margin-right: 0.1em;
+}
+
+.article-container{
+  position: relative;
+  z-index: 2;
+  max-width: 60rem;
+  margin: 1rem auto 0 auto;
+  padding: 6.6rem 10rem 8rem 10rem;
+  background-color: $white-color;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: $medium-device){
+    padding: 2rem 3rem;
+  }
+}
+
+.article-container .article-heading{
+  margin-top: 3.2rem;
+  margin-bottom: 2.4rem;
+  text-align: center;
+}
+
+.article-container h2{
+  margin-bottom: 1.6rem;
+  margin-top: 3.2rem;
+}
+
+.article-container h1{
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.article-container h2{
+  font-weight: 300;
+}
+
+.article-container .article-meta {
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+
+.article-container .author:after{
+  content:' – ';
+}
+
+.article-container p{
+  line-height: $line-height-standard;
+  font-size: 1.125rem;
+}
+
+.article-container blockquote{
+  margin: 2rem 3rem 2rem 2rem;
+  font-size: 1rem;
+  line-height: $line-height-standard;
+  font-size: $font-size-standard;
+  font-style: italic;
+}
+
+.article-container code{
+  font-family: "Courier";
+  white-space: pre;
+  font-size: 0.8rem;
+  margin: 2rem 3rem 2rem 2rem;
+}
+
+.article-container ul{
+  list-style: none;
+}
+
+.article-container li:before {
+  content: '\2022';
+  display: block;
+  position: relative;
+  max-width: 0;
+  max-height: 0;
+  left: -1rem;
+  line-height: 1;
+  top: 0;
+  font-size: 20px;
+}

@@ -1,0 +1,34 @@
+{% capture image_url %}/assets/images/{{ page.date | date: "%Y/%m/%d" }}/{{ include.url }}{% endcapture %}
+
+<style>
+
+.gallery {
+  width: 100%;
+}
+
+
+
+</style>
+
+<figure class="full-width-figure">
+  {% include auto-gallery.html %}
+  {% if include.alignment == "right" %}
+  <figcaption class="caption-container right-aligned">
+  {% elsif include.alignment == "center" %}
+  <figcaption class="caption-container center-aligned">
+  {% else %}
+  <figcaption class="caption-container">
+  {% endif %}
+
+  {% if include.caption_title != "" %}
+    <span class="caption-title">{{ include.caption_title }}</span><br/>
+  {% endif %}
+
+  {% if include.caption_sub != "" %}
+    <span class="caption-subhead">{{ include.caption_sub }}</span>
+  {% endif %}
+
+  </figcaption>
+</figure>
+
+

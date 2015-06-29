@@ -1,0 +1,7 @@
+<div class="cover-title">
+  <div class="svg-ratio-hack" style="padding-bottom: {{ page.viewbox_title_y | divided_by: page.viewbox_title_x | times: 100 }}%;">
+    <svg class="svg-cover-title" x="0px" y="0px" preserveAspectRatio="xMidYMid meet" viewBox="0 {{ page.viewbox_title_y | times: -0.75 }} {{ page.viewbox_title_x }} {{ page.viewbox_title_y }}">
+      <text font-size="60px">{{ page.title_text }}</text>
+    </svg>
+  </div>
+</div>
