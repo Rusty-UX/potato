@@ -6,9 +6,79 @@
 
   <body>
     {% include header.html %}
+    {% include lightbox.html %}
+    <style>
+      .processing-container{
+        width: 800px;
+        height: 200px;
+        position: relative;
+        z-index: 999;
+      }
+
+      .processing-container canvas{
+        width: 100%;
+      }
+    </style>
+    <div class="processing-container">
+      <!-- <canvas data-processing-sources="http://localhost:4000/assets/test/test.pde"></canvas> -->
+    </div>
+    <script>
+    $( document ).ready(function() {
+      $("#readerMode").click(function() {
+
+        var scrollAmount = $("body").scrollTop();
+        toggleFullScreen();
+        setTimeout(function(){ $(document).scrollTop(scrollAmount); }, 500);
+      });
+    });
+
+    function isFullScreen()
+    {
+        return (document.fullScreenElement && document.fullScreenElement !== null)
+             || document.mozFullScreen
+             || document.webkitIsFullScreen;
+    }
+
+    function getScroll(){
+
+    }
+
+
+    function requestFullScreen(element)
+    {
+        if (element.requestFullscreen)
+            element.requestFullscreen();
+        else if (element.msRequestFullscreen)
+            element.msRequestFullscreen();
+        else if (element.mozRequestFullScreen)
+            element.mozRequestFullScreen();
+        else if (element.webkitRequestFullscreen)
+            element.webkitRequestFullscreen();
+    }
+
+    function exitFullScreen()
+    {
+        if (document.exitFullscreen)
+            document.exitFullscreen();
+        else if (document.msExitFullscreen)
+            document.msExitFullscreen();
+        else if (document.mozCancelFullScreen)
+            document.mozCancelFullScreen();
+        else if (document.webkitExitFullscreen)
+            document.webkitExitFullscreen();
+    }
+
+    function toggleFullScreen(element)
+    {
+        if (isFullScreen())
+            cancelFullScreen();
+        else
+            requestFullScreen(element || document.documentElement);
+    }
+    </script>
     <div class="article-container cover-container cover-container-dark">
       <div class="cover-copy">
-      <!--         { include article-svg-cover-title.html } -->
+        { include article-svg-cover-title.html }
         <div class="cover-subtitle">June 2015</div>
       </div>
       <div class="page-cover">
@@ -17,6 +87,7 @@
       </div>
     </div>
     <div class="page-content">
+      <div id="readerMode">Reader mode</div>
       <div class="wrapper">
         <div class="article-container">
           {{ content }}
@@ -24,8 +95,5 @@
         </div>
       </div>
     </div>
-
-    {% include comment_template.html %}
-
   </body>
 </html>

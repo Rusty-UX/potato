@@ -1,14 +1,10 @@
 body{
   padding: 1rem;
-  background-color: hsl(0, 0%, 81%);
+  background-color: #e7e7e7;
   margin: 0;
   font-family: $base-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body, html{
-  height: 100%;
 }
 
 .bg-gradient{

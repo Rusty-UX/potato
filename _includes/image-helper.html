@@ -20,8 +20,14 @@
   <figcaption class="caption-container">
   {% endif %}
 
+  {% if include.image_type == "custom_bg" %}
+    {% capture border_top_style %}style='border-top: none'{% endcapture %}
+  {% else %}
+    {% capture border_top_style %}style='border-top: 1px solid {{ include.dominant_color}}'{% endcapture %}
+  {% endif %}
+
   {% if include.caption_title != "" %}
-    <span class="caption-title">{{ include.caption_title }}</span><br/>
+    <span class="caption-title" {{ border_top_style }}>{{ include.caption_title }}</span><br/>
   {% endif %}
 
   {% if include.caption_sub != "" %}

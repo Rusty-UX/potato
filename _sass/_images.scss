@@ -75,4 +75,50 @@
   left: 50%;
 }
 
+.image-aspect-adjust img[src*="aspect-1-1"]{
+  top: 0;
+  -webkit-transform: translateX(-50%);
+  left: 50%;
+}
+
+.image-container .has-lightbox-link{
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/* max widths */
+
+img[src*="width"] {
+  margin: 0 auto;
+  display: block;
+}
+
+img[src*="width_30rem"] {
+  width: 30rem;
+}
+
+img[src*="width_35rem"] {
+  width: 35rem;
+}
+
+
+img[src*="width_40rem"] {
+  width: 40rem;
+}
+
+/* Image blending */
+@supports (mix-blend-mode: multiply) {
+  img.blended-image{
+    mix-blend-mode: multiply;
+    padding: 5rem;
+    box-sizing: border-box;
+
+    @media only screen and (max-width: $tiny-device){
+      padding: 1rem;
+    }
+  }
+}
+
+
 
