@@ -1,21 +1,46 @@
 <script>
 $( document ).ready(function() {
 
-  $('.has-lightbox-link').magnificPopup({type:'image'});
+  var bg_source = '';
 
-  $('.has-lightbox-link').magnificPopup({
-    type: 'image',
-    closeOnContentClick: true,
-    closeBtnInside: false,
-    fixedContentPos: true,
-    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-    image: {
-      verticalFit: true
-    },
-    zoom: {
-      enabled: true,
-      duration: 300 // don't foget to change the duration also in CSS
+  /* CLICK TO FIRE */
+  $('[data-lightbox]').on('click', function(){
+    open_lightbox($(this));
+  });
+
+  /* ENTER KEY TO FIRE */
+  $('[data-lightbox]').keydown(function (e) {
+    if($(".lightbox-visible" ).length > 0){
+      console.log("close");
+      if(e.which == 13 || e.which == 27) {
+        close_lightbox();
+      }
+    }else{
+      if (e.which == 13) {
+        open_lightbox($(this));
+        console.log("open");
+      }
     }
   });
+
+  /* ClOSE WITH ENTER OR ESCAPE KEY */
+  $('.lightbox').on('click', function(){
+    close_lightbox();
+  });
+
+  function open_lightbox(source){
+    bg_source = source.attr('data-lightbox');
+    $('.lightbox').css('background-image', 'url(' + bg_source + ')');
+    $('.lightbox').addClass('lightbox-visible');
+  }
+
+  function close_lightbox(){
+    $('.lightbox').removeClass('lightbox-visible');
+
+    setTimeout(function(){
+      $('.lightbox').css('background-image', '');
+    }, 500);
+  }
+
 });
 </script>

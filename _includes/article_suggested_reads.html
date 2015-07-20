@@ -1,0 +1,64 @@
+
+<div class="bookshelf-container flex-container flex-container--wrap flex-container--align-end flex-container--center">
+{% if page.next %}
+  <style>
+  #book_cover_1{
+    background: linear-gradient(45deg, hsl( {{ page.next.primary_h }}, {{ page.next.primary_s }}%, {{ page.next.primary_l }}%) 0%, hsl( {{ page.next.secondary_h }}, {{ page.next.secondary_s }}%, {{ page.next.secondary_l }}%)  100%);
+  }
+  .previous-color-text{
+    color: hsl( {{ page.next.secondary_t_h }}, {{ page.next.secondary_t_s }}%, {{ page.next.secondary_t_l }}%);
+  }
+  </style>
+  <div class="flex-item">
+    <div class="book">
+      <div class="book-cover-container">
+        <a href="#" tabindex="0" class="cover-link"></a>
+        <div class="book-cover" id="book_cover_1">
+        <div class="book-subtitle next-color-text">{{ page.next.filed_under }}</div>
+          <div class="book-image" style="background-image:url({{ site.baseurl }}/{{ page.next.book_image }});"></div>
+          <div class="title-container">
+            <div class="book-title text-fill">
+              <span class="next-color-text">{{ page.next.title }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="book-shelf"></div>
+  </div>
+{% endif %}
+{% if page.previous %}
+  <style>
+    #book_cover_2{
+      background: linear-gradient(45deg, hsl( {{ page.previous.primary_h }}, {{ page.previous.primary_s }}%, {{ page.previous.primary_l }}%) 0%, hsl( {{ page.previous.secondary_h }}, {{ page.previous.secondary_s }}%, {{ page.previous.secondary_l }}%)  100%);
+    }
+    .previous-color-text{
+      color: hsl( {{ page.previous.secondary_t_h }}, {{ page.previous.secondary_t_s }}%, {{ page.previous.secondary_t_l }}%);
+    }
+  </style>
+  <div class="flex-item">
+    <div class="book">
+      <div class="book-cover-container">
+        <a href="#" tabindex="0" class="cover-link"></a>
+        <div class="book-cover" id="book_cover_2">
+        <div class="book-subtitle previous-color-text">{{ page.previous.filed_under }}</div>
+          <div class="book-image" style="background-image:url({{ site.baseurl }}/{{ page.previous.book_image }});"></div>
+          <div class="title-container">
+            <div class="book-title text-fill">
+              <span class="previous-color-text">{{ page.previous.title }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="book-shelf"></div>
+  </div>
+{% endif %}
+</div>
+<script>
+  // $( document ).ready(function() {
+  //   $('.text-fill').textfill({
+  //     maxFontPixels: 36,
+  //   });
+  // });
+</script>

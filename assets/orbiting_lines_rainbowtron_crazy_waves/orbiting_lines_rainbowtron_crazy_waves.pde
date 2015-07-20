@@ -1,5 +1,5 @@
 int dim;
-int rectCount = 10;
+int rectCount = 100;
 float[] rect_pos_x = new float[rectCount];
 float[] rect_pos_y = new float[rectCount];
 float[] rect_pos_z = new float[rectCount];
@@ -74,7 +74,6 @@ void moveRect() {
     fill(rect_pos_x[i]/2, 70, 100, 255);
     rect(rect_pos_x[i], rect_pos_y[i], 16, 2);
     translate(0,0,rect_pos_z[i]);
-    rotate(0.0001*rect_pos_x[i]);
   }
 }
 

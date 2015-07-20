@@ -92,8 +92,11 @@
         <div class="article-container">
           {{ content }}
           <div class="credits"></div>
+          {% include comment_template.html %}
         </div>
+        {% include article_suggested_reads.html %}
       </div>
     </div>
+    <div class="lightbox"></div>
   </body>
 </html>

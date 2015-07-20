@@ -1,22 +1,5 @@
-
-<script>
-var thispage = document.location.href;
-$.getJSON('http://pooleapp.com/data/9686f221-c7fa-4025-b257-8371ba408d55.json', function(d) {
-  $.each(d, function(key, val) {
-		console.log(val);
-  });
-});
-</script>
-
-<form action="http://pooleapp.com/stash/8a5e1201-ce65-448a-8a22-2e257da78ae2/" method="post">
-  <input type="hidden" name="redirect_to" value="localhost:4000" />
-  <input type="text" name="potato" />
-  <input type="email" name="potato" />
-  <input type="submit" value="submit" />
-</form>
-
-<!-- API key
-8a5e1201-ce65-448a-8a22-2e257da78ae2
-API secret
-9686f221-c7fa-4025-b257-8371ba408d55
- -->
+<div class="comment-template">
+  {% include comment_template_form.html %}
+  <div class="comment-list">
+  </div>
+</div>

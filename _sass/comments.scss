@@ -1,0 +1,142 @@
+.comment-template{
+  margin-top: 3.6rem;
+}
+
+.comment-item{
+  margin-top: 1.6rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid #efefef;
+}
+
+.comment-item-photo{
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.form-item-photo{
+  position: absolute;
+  width: 2.9rem;
+  height: 2.9rem;
+  overflow: hidden;
+  border-radius: 5px;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: scale(0.8);
+  transition: all 0.5s cubic-bezier(0.56, -0.67, 0.38, 1.24);
+}
+
+.form-item-photo-is-visible{
+  opacity: 1;
+  -webkit-transform: scale(1);
+}
+
+.comment-item-body{
+  flex: 1 1 300px;
+}
+
+.comment-item-date{
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.comment-item-name{
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+/* FORM */
+
+.label{
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  display: inline-block;
+}
+
+.add-comment-button{
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 5px;
+  -webkit-transition: all 0.7s, border 0.1s, background-color 0.1s, width none;
+  cursor: pointer;
+  color: white;
+}
+
+.add-comment-button--hidden{
+  display: none;
+}
+
+.input-visible .add-comment-button{
+  display: none;
+}
+
+.group-hidden {
+  opacity: 1;
+  height: 0;
+  max-height: 0;
+  padding: 0;
+  visibility: hidden;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.email-input-wrapper{
+  position: relative;
+}
+
+.email-name .flex-item{
+  flex: 1 1 400px;
+}
+
+.email-name .flex-item:first-child{
+  margin-right: 2.4rem;
+}
+
+.comment-form{
+  -webkit-transition: all .5s;
+}
+
+.input-visible .input,
+.group-visible{
+  opacity: 1;
+  visibility: visible;
+}
+
+.input{
+  font-size: 1rem;
+  font-family: "Tiempos";
+  border-radius: 5px;
+  max-height: 800px;
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  box-shadow: 0 0 0 1px hsl(0, 0%, 75%);
+  transition: height 0s linear, padding 0.2s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.input-invalid{
+  box-shadow: 0 0 0 2px hsl( 360, 70%, 50%);
+}
+
+.input:focus{
+  outline: 0;
+  box-shadow: 0 0 0 2px blue;
+}
+
+.email-input{
+  -webkit-transition: all 0.5s cubic-bezier(0.56, -0.67, 0.38, 1.24);
+}
+
+.email-input-slide-left{
+  width: calc(100% - 3.8rem) !important;
+}

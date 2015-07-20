@@ -4,24 +4,27 @@
 @charset "utf-8";
 
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+  @media screen and (max-width: $device) {
+    @content;
+  }
 }
 
 @import
-        "font-face",
-        "variables",
-        "grid",
-        "typography",
-        "base",
-        "helpers",
-        "nav",
-        "canvas-bg",
-        "layout",
-        "article",
-        "cover",
-        "figures",
-        "images",
-        "lightbox"
+  "font-face",
+  "variables",
+  "grid",
+  "flex-grid",
+  "typography",
+  "base",
+  "helpers",
+  "nav",
+  "canvas-bg",
+  "layout",
+  "article",
+  "cover",
+  "figures",
+  "images",
+  "lightbox",
+  "comments",
+  "books"
 ;

@@ -20,12 +20,9 @@
       <div class="wrapper">
         <div class="article-container">
           {{ content }}
-          <div class="credits"></div>
+          {% include comment_template.html %}
         </div>
       </div>
     </div>
-
-    {% include comment_template.html %}
-
   </body>
 </html>

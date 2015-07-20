@@ -1,6 +1,7 @@
 ---
 title: "Welcome to the Mothership"
 sketch: processing_sketch_mothership.html
+post_id: 'mothership'
 author: "Russell Baylis"
 date:   2015-06-12
 layout: post
@@ -30,7 +31,7 @@ When I started working at Shopify about two years ago, the first thing I saw on 
 
 When I was asked if I could create a piece for the Café at the office, I was really excited. Not just tonnes of Shopifolk come through the Cafe everyday on there way to their desks, but also for any guests that are around for events.
 
-It was important that whatever we put on this wall, it had to make people feel welcome, and serve as a introduction to Shopify, in the same way that the illustration of the space woman did. After a while of exploring, we decided that we'd echo the message now on the 8th floor— Welcome to the Shopify Mothership. 
+It was important that whatever we put on this wall, it had to make people feel welcome, and serve as a introduction to Shopify, in the same way that the illustration of the space woman did. After a while of exploring, we decided that we'd echo the message now on the 8th floor— Welcome to the Shopify Mothership.
 
 ## Early concepts
 We realized that we'd need to build the layout in single colour (white on black) and so the details had to all work in single colour. We focused on finding a layout and style that worked well with the dimensions of the chalk wall (12 x 10 feet).
@@ -38,7 +39,7 @@ We realized that we'd need to build the layout in single colour (white on black)
 Since the wall had already been painted with blackboard paint it was decided that we'd need chalk. I'd done a bit of work in the past with chalk markers and really enjoyed the clean lines you could get that just aren't possible with regular chalk. They are a bit on the pricey side, but each one goes a long way, I only went through one doing the whole wall. You can pick some up here.
 
 ## Inspiration
-To get an idea of style I did a lot of research into the materials that go into a space shuttle. I started out by exploring Café sandwich boards, and sign paintings but it became clear that the style wouldn't match the message. I looked for reference material that was a bit closer to the message. 
+To get an idea of style I did a lot of research into the materials that go into a space shuttle. I started out by exploring Café sandwich boards, and sign paintings but it became clear that the style wouldn't match the message. I looked for reference material that was a bit closer to the message.
 
 {% include image-helper.html url_1="the-patch.jpg?width_35rem" caption_title="NASA Mission STS-133" caption_sub="The 35th shuttle mission, and the final flight of Discovery" alignment="center" image_type="custom_bg" dominant_color="hsla(200, 97%, 55%, 0.1)" %}
 
@@ -61,8 +62,5 @@ EXPLORATION
 - chalk markers
 ## digital layout
 - free handing / tracing projections
-
-Credit
-- Annette Photography
 
 

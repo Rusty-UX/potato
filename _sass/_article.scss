@@ -10,7 +10,7 @@
   opacity: 1;
 }
 
-p:first-child:first-letter {
+.article-container > p:first-child:first-letter {
   font-size: 4rem;
   position: absolute;
   float: left;
@@ -30,6 +30,7 @@ p:first-child:first-letter {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  box-shadow: 0 2px 0px 0px hsla(0, 0%, 0%, 0.06);
 
   @media only screen and (max-width: $medium-device){
     padding: 2rem 3rem;

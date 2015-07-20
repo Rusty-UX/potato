@@ -1,0 +1,194 @@
+<script>
+  $( document ).ready(function() {
+
+    /* Add script */
+    var script_to_add = document.createElement("script");
+    script_to_add.type = "text/javascript";
+    script_to_add.src = "http://localhost:8000/api.php?callback=get_JSON";
+    $("head").append(script_to_add);
+
+
+    //////////////////
+    // Get date
+    /////////////////
+
+    var d = new Date();
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    month = month[d.getMonth()];
+    var year = d.getFullYear();
+    var day = d.getDate();
+
+    var formatted_day = ordinal_suffix_of(day);
+    console.log(month,formatted_day,year);
+
+    function ordinal_suffix_of(i) {
+    var j = i % 10,
+          k = i % 100;
+      if (j == 1 && k != 11) {
+          return i + "st";
+      }
+      if (j == 2 && k != 12) {
+          return i + "nd";
+      }
+      if (j == 3 && k != 13) {
+          return i + "rd";
+      }
+      return i + "th";
+    }
+
+    $('.add-comment-button').on('click', function(){
+      $(this).addClass('add-comment-button--hidden');
+      $('.group-hidden').addClass('group-visible').removeClass('group-hidden');
+      document.location.href="#comment-form";
+      $('.name-input').focus();
+    });
+
+  $('#submit').on('click', function (e) {
+    e.preventDefault();
+    if(validate_form()){
+      $.ajax({
+        type: 'post',
+        async: true,
+        crossDomain: true,
+        url: 'http://localhost:8000/comment.php',
+        data: $('form').serialize(),
+        success: function () {
+          //alert($('form').serialize());
+          var post_img = $(".form-item-photo").html();
+          var post_name = $(".name-input").val();
+          var post_date = ""+month+" "+formatted_day+", "+year+"";
+          var post_message = $(".message").val();
+
+          $('.comment-list').prepend('<div class="comment-item"><div class="comment-item-head flex-container flex-container--wrap"><div class="comment-item-photo flex-item flex-item--no-flex">'+post_img+'</div><div class="comment-item-body flex-item"><h3 class="comment-item-name">'+post_name+'</h3><span class="comment-item-date">'+post_date+'</span><div class="comment-content">'+post_message+'</div></div></div></div>');
+        }
+      });
+    }
+  });
+
+  /* Check for valid email */
+  $('.email-input').keyup( $.debounce( 1000, check_email ) );
+  // $('.input').keyup( $.debounce( 1000, validate(this)));
+
+
+  //////////////////
+  // Validation
+  /////////////////
+
+  // function validate_name(){
+  // var post_name = $(".name-input").val();
+  //   if(post_name == ''){
+  //     valid_name = "invalid";
+  //     $(".name-input").addClass("input-invalid");
+  //     $("#submit").attr('disabled','disabled');
+  //   }
+  // }
+
+  function validate_form(){
+    var post_name = $(".name-input").val();
+    var post_email = $(".email-input").val();
+    var post_message = $(".message").val();
+
+    var valid_name;
+    var valid_email;
+    var valid_message;
+
+    if(post_name == ''){
+      valid_name = "invalid";
+      $(".name-input").addClass("input-invalid");
+    }else{
+      valid_name = "valid";
+      $(".name-input").removeClass("input-invalid");
+    }
+    if(post_email == ''){
+      valid_email = "invalid";
+      $(".email-input").addClass("input-invalid");
+    }else{
+      valid_email = "valid";
+      $(".email-input").removeClass("input-invalid");
+    }
+
+    if(post_message == ''){
+      valid_message = "invalid";
+      $(".message").addClass("input-invalid");
+    }else{
+      valid_message = "valid";
+      $(".message").removeClass("input-invalid");
+    }
+
+    if(valid_name != "invalid" && valid_email != "invalid" && valid_message != "invalid"){
+      $(".input").removeClass("input-invalid");
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  function check_email(){
+    var hash_src = $('.email-input').val();
+    var hash = md5(hash_src);
+    $('.form-item-photo img').attr('src','http://www.gravatar.com/avatar/'+hash+'?d=retro');
+    if(hash_src.indexOf('@') >= 0){
+      $('.email-input').addClass('email-input-slide-left');
+      $('.form-item-photo').addClass('form-item-photo-is-visible');
+    }else{
+      $('.email-input').removeClass('email-input-slide-left');
+      $('.form-item-photo').removeClass('form-item-photo-is-visible');
+      $('.email-input').keyup( $.debounce( 1000, check_email ) );
+      setTimeout(function(){
+        $('.form-item-photo img').attr('src','http://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro');
+      }, 1000);
+    }
+  }
+});
+</script>
+<script>
+  function get_JSON(data){
+    console.log(data);
+    $.each(data, function(key,val){
+      if(val.blog_post_id == "{{ page.post_id }}"){
+        $('.comment-list').prepend('<div class="comment-item"><div class="comment-item-head flex-container flex-container--wrap"><div class="comment-item-photo flex-item flex-item--no-flex"><img src="http://www.gravatar.com/avatar/'+val.email_hash+'?d=retro" /></div><div class="comment-item-body flex-item"><h3 class="comment-item-name">'+val.name+'</h3><span class="comment-item-date">'+val.date+'</span><div class="comment-content">'+val.message+'</div></div></div></div>');
+      }
+    });
+  }
+</script>
+<a name="comment-form"></a>
+<form class="comment-form" action="http://localhost:8000/comment.php" method="post">
+  <div class="add-comment-button">Add a comment</div>
+  <div class="input-container group-hidden">
+    <div>
+      <label class="label label-name" for="name">Name</label>
+      <input type="text" name="name" id="name" class="input name-input"/>
+    </div>
+    <div>
+      <div class="email-input-wrapper">
+        <div class="form-item-photo">
+          <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro" />
+        </div>
+        <div>
+          <label class="label label-email" for="email">Email</label>
+          <input type="text" name="email" id="email" class="input email-input"/>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label class="label label-message clearf ix" for="message">Message</label>
+      <textarea rows="4" name="message" id="message" class="input message"></textarea>
+    </div>
+    <div>
+      <input type="hidden" name="blog_post_id" value="{{page.post_id}}">
+      <input type="submit" value="Post message" id="submit"/>
+    </div>
+  </div>
+</form>
