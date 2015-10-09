@@ -1,0 +1,32 @@
+{% if page.url == index %}
+
+  {{ page.work_section_bg }}
+
+  <div class="main-nav">
+    {% for link in site.navigation %}
+      {% assign current = nil %}
+      {% if page.url contains link.url %}
+          {% assign current = 'current' %}
+      {% endif %}
+      <span class="{{ current }} link">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+      </span>
+    {% endfor %}
+  </div>
+
+{% else %}
+
+<div class="main-nav">
+  {% for link in site.navigation %}
+    {% assign current = nil %}
+    {% if page.url contains link.url %}
+        {% assign current = 'current' %}
+    {% endif %}
+    <span class="{{ current }} link">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+    </span>
+  {% endfor %}
+</div>
+
+{% endif %}
+

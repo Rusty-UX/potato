@@ -1,5 +1,16 @@
 <style>
 
+  body:after{
+    content: '';
+    background-image: {{ page.article_bg_css }};
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   body{
     color: hsl( {{ page.primary_t_h }}, {{ page.primary_t_s }}%, {{ page.primary_t_l }}%);
   }
@@ -16,33 +27,33 @@
     color: hsl( {{ page.secondary_t_h }}, {{ page.secondary_t_s }}%, {{ page.secondary_t_l }}%);
   }
 
-  .add-comment-button{
+  .subtitle--article-header{
+    color: hsla( {{ page.primary_t_h }}, {{ page.primary_t_s }}%, {{ page.primary_t_l }}%, 0.75);
+  }
+
+  .button{
     background: linear-gradient(45deg, hsl( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%) 0%, hsl( {{ page.secondary_h }}, {{ page.secondary_s }}%, {{ page.secondary_l }}%)  100%);
+    box-shadow: inset 0 0 0 4px hsla(0,0%, 0%, 0);
+    transition: all 0.4s;
   }
 
-  .add-comment-button:hover{
-    background-color: hsla( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%, 0.3);
+  .article-content a{
+    border-bottom-color: hsla( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%, 0.7);
   }
 
-  a{
-    background-color: transparent;
-    border-bottom: 1px solid hsla( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%, 0.7);
-    box-shadow: inset 0 -1px 0 hsla( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%, 0.7);
-    -webkit-transition: all 0.3s;
-  }
-
-  a:hover{
-    background-color: hsla( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%, 0.3);
-  }
-
-  .input:focus{
+  .input:focus {
     box-shadow: 0 0 0 2px hsl( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%);
   }
 
   .image-cover-link:focus,
-  .cover-link:focus{
+  .cover-link:focus,
+  .button:focus {
     box-shadow: inset 0 0 0 2px hsl( {{ page.primary_h }}, {{ page.primary_s }}%, {{ page.primary_l }}%), inset 0 0 0 6px white;
     outline: 0;
+  }
+
+  .article-header{
+    border-color: hsla( {{ page.primary_t_h }}, {{ page.primary_t_s }}%, {{ page.primary_t_l }}%, 0.2);
   }
 
   .article-container li:before {
@@ -67,7 +78,8 @@
     margin-left: 1em;
   }
 
-
-
+  .lightbox-bg{
+    background: {{ page.article_bg_css }};
+  }
 
 </style>

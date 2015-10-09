@@ -1,64 +1,46 @@
+{% if page.category == "work" %}
+  {% for post in site.categories.work %}
+    {% if post.url == page.url %}
+      {% assign current_post_index = forloop.index %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
-<div class="bookshelf-container flex-container flex-container--wrap flex-container--align-end flex-container--center">
-{% if page.next %}
-  <style>
-  #book_cover_1{
-    background: linear-gradient(45deg, hsl( {{ page.next.primary_h }}, {{ page.next.primary_s }}%, {{ page.next.primary_l }}%) 0%, hsl( {{ page.next.secondary_h }}, {{ page.next.secondary_s }}%, {{ page.next.secondary_l }}%)  100%);
-  }
-  .previous-color-text{
-    color: hsl( {{ page.next.secondary_t_h }}, {{ page.next.secondary_t_s }}%, {{ page.next.secondary_t_l }}%);
-  }
-  </style>
-  <div class="flex-item">
-    <div class="book">
-      <div class="book-cover-container">
-        <a href="#" tabindex="0" class="cover-link"></a>
-        <div class="book-cover" id="book_cover_1">
-        <div class="book-subtitle next-color-text">{{ page.next.filed_under }}</div>
-          <div class="book-image" style="background-image:url({{ site.baseurl }}/{{ page.next.book_image }});"></div>
-          <div class="title-container">
-            <div class="book-title text-fill">
-              <span class="next-color-text">{{ page.next.title }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="post-footer">
+  {% if page.category == "work" %}
+    <h2 class="heading-2 heading-2--next-reads">Other work you might like…</h2>
+  {% elsif page.category == "writings" %}
+    <h2 class="heading-2 heading-2--next-reads">Other writings you might like…</h2>
+  {% endif %}
+  <div class="bookshelf-container">
+    <div class="flex-container flex-container--wrap flex-container--align-end flex-container--center">
+    {% for post in site.categories.work %}
+
+    {% if post.book_gradient_overlay == "true" %}
+      {% capture gradient_overlay %}background: linear-gradient(45deg, hsl( {{ post.primary_h }}, {{ post.primary_s }}%, {{ post.primary_l }}%) 0%, hsl( {{ post.secondary_h }}, {{ post.secondary_s }}%, {{ post.secondary_l }}%)  100%);{% endcapture %}
+    {% else %}
+      {% capture gradient_overlay %}background: {{ post.book_bg_color }}{% endcapture %}
+    {% endif %}
+
+    {% capture text_color_1 %}color: hsl( {{ post.secondary_t_h }}, {{ post.secondary_t_s }}%, {{ post.secondary_t_l }}%);{% endcapture %}
+
+    {% capture text_color_2 %}color: hsl( {{ post.secondary_t_h }}, {{ post.secondary_t_s }}%, {{ post.secondary_t_l }}%);{% endcapture %}
+
+    {% if post.book_multiply == "true" %}
+      {% capture book_multiply %}mix-blend-mode: multiply;{% endcapture %}
+    {% endif %}
+
+    {% capture book_image_opacity %}opacity: {{ post.book_image_opacity }};{% endcapture %}
+
+    {% if post.book_image_opacity == "true" %}
+      {% capture book_image_opacity %}opacity: {{ post.book_image_opacity }}{% endcapture %}
+    {% endif %}
+
+      {% unless forloop.index == current_post_index %}
+        {% include generic_book.html %}
+      {% endunless %}
+    {% endfor %}
     </div>
-    <div class="book-shelf"></div>
+    <div class="bookshelf-backdrop"></div>
   </div>
-{% endif %}
-{% if page.previous %}
-  <style>
-    #book_cover_2{
-      background: linear-gradient(45deg, hsl( {{ page.previous.primary_h }}, {{ page.previous.primary_s }}%, {{ page.previous.primary_l }}%) 0%, hsl( {{ page.previous.secondary_h }}, {{ page.previous.secondary_s }}%, {{ page.previous.secondary_l }}%)  100%);
-    }
-    .previous-color-text{
-      color: hsl( {{ page.previous.secondary_t_h }}, {{ page.previous.secondary_t_s }}%, {{ page.previous.secondary_t_l }}%);
-    }
-  </style>
-  <div class="flex-item">
-    <div class="book">
-      <div class="book-cover-container">
-        <a href="#" tabindex="0" class="cover-link"></a>
-        <div class="book-cover" id="book_cover_2">
-        <div class="book-subtitle previous-color-text">{{ page.previous.filed_under }}</div>
-          <div class="book-image" style="background-image:url({{ site.baseurl }}/{{ page.previous.book_image }});"></div>
-          <div class="title-container">
-            <div class="book-title text-fill">
-              <span class="previous-color-text">{{ page.previous.title }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="book-shelf"></div>
-  </div>
-{% endif %}
 </div>
-<script>
-  // $( document ).ready(function() {
-  //   $('.text-fill').textfill({
-  //     maxFontPixels: 36,
-  //   });
-  // });
-</script>

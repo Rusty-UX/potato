@@ -1,6 +1,6 @@
 .full-width-figure{
   margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   width: calc(100% + 8rem);
   margin-left: -4rem;
   @media only screen and (max-width: $medium-device){
@@ -24,20 +24,22 @@
   }
 
   .caption-title{
+    font-family: "Freight Text";
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     border-top: 1px solid $grey-color;
-    margin-top: 1.6rem;
+    margin-top: 1rem;
     display: inline-block;
     font-weight: bold;
-    padding-top: 0.8rem;
+    padding-top: 1rem;
   }
 
   .caption-subhead{
+    font-size: 0.75rem;
     margin-top: 0.25rem;
     display: inline-block;
-    font-size: 0.75rem;
-    max-width: 25rem;
     line-height: $line-height-standard;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: subpixel-antialiased;
   }
 }

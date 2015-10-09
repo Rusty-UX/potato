@@ -60,6 +60,9 @@
   background-color: transparent !important;
   transition: none;
   border: none;
+  cursor: pointer;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
 }
 
 .image-cover-link:focus{

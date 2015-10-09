@@ -1,7 +1,9 @@
 ---
-title: "Welcome to the Mothership"
+title: Welcome to the&nbsp;Mothership
 author: "Russell Baylis"
+category: "work"
 date:   2015-06-12
+date_human: "June 2015"
 layout: post
 hero_image_url: "front-optim.jpg"
 image_url_1: "side.jpg"
@@ -20,9 +22,10 @@ primary_t_l: "23"
 secondary_t_h: "201"
 secondary_t_s: "20"
 secondary_t_l: "20"
+article_bg_css: "linear-gradient(135deg, #00DCB3, #00B8FF)"
 title_view_box: "0 -55 778 71"
 title_aspect_ratio: "9"
-title_text: "Welcome to the Mothership"
+title_text: "Welcome to the&nbsp;Mothership"
 x: "160.0"
 y: "54"
 ---

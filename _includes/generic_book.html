@@ -1,0 +1,17 @@
+<div class="flex-item">
+  <div class="book">
+    <div class="book-cover-container">
+      <a href="#" tabindex="0" class="cover-link"></a>
+      <div class="book-cover" style="{{ gradient_overlay }};">
+      <div class="subtitle subtitle--book previous-color-text" style="color: {{ page.book_text_color }};">{{ post.filed_under }}</div>
+        <div class="book-image" style="background-image:url({{ site.baseurl }}/{{ post.book_image }}); {{ book_multiply }}; {{ book_image_opacity }}"></div>
+        <div class="title-container">
+          <div class="book-title text-fill">
+            <span style="color: {{ page.book_text_color }};">{{ post.title_text }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="book-shelf"></div>
+</div>

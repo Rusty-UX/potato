@@ -1,0 +1,75 @@
+<div class="page-content">
+  <div class="wrapper" style="background-color: {{ page.book_section_bg }}">
+    <div class="grid-container">
+      <div class="bookshelf-container" style="{{ page.book_section_border }}">
+        <div class="flex-container flex-container--wrap flex-container--align-center flex-container--center">
+          <div class="bookshelf-description">
+            <h2 style="color: {{ page.book_section_text_color }}" class="heading-2 heading-2--suggested-book">{{ page.book_title }}</h2>
+            <p style="color: {{ page.book_section_text_color }}">{{ page.book_desc }}</p>
+            <a style="color: {{ page.book_section_text_color }}; border-bottom-color: {{ page.book_section_link_border }}" href="{{ page.book_link_url }}">{{ page.book_link_text }}</a>
+          </div>
+          <div class="bookshelf-content flex-container--align-end">
+            {% for post in site.categories.book limit: 2 %}
+              {% if post.book_gradient == "true" %}
+                {% capture gradient_overlay %}background: linear-gradient(45deg, hsl( {{ post.primary_h }}, {{ post.primary_s }}%, {{ post.primary_l }}%) 0%, hsl( {{ post.secondary_h }}, {{ post.secondary_s }}%, {{ post.secondary_l }}%)  100%);{% endcapture %}
+              {% else %}
+                {% capture gradient_overlay %}background-color: {{ post.book_bg_color }};{% endcapture %}
+              {% endif %}
+
+              {% capture text_color_1 %}color: hsl( {{ post.secondary_t_h }}, {{ post.secondary_t_s }}%, {{ post.secondary_t_l }}%);{% endcapture %}
+
+              {% capture text_color_2 %}color: hsl( {{ post.secondary_t_h }}, {{ post.secondary_t_s }}%, {{ post.secondary_t_l }}%);{% endcapture %}
+
+              {% if post.book_multiply == "true" %}
+                {% capture book_multiply %}mix-blend-mode: multiply;{% endcapture %}
+              {% endif %}
+
+              {% capture book_image_opacity %}opacity: {{ post.book_image_opacity }};{% endcapture %}
+
+              {% if post.book_image_opacity == "true" %}
+                {% capture book_image_opacity %}opacity: {{ post.book_image_opacity }}{% endcapture %}
+              {% endif %}
+
+              {% if post.book_image_opacity == "true" %}
+                {% capture book_image_opacity %}opacity: {{ post.book_image_opacity }}{% endcapture %}
+              {% endif %}
+
+              {% if post.book_image_greyscale == "true" %}
+                {% capture book_image_greyscale %}-webkit-filter:grayscale(100%);filter:grayscale(100%);{% endcapture %}
+              {% else %}
+                {% capture book_image_greyscale %}{% endcapture %}
+              {% endif %}
+
+              {% if post.book_text_color != "" %}
+                {% capture book_text_color %}color:{{ post.book_text_color }};{% endcapture %}
+              {% else %}
+                {% capture book_text_color %}{% endcapture %}
+              {% endif %}
+
+              {% if post.book_cover_aspect_ratio != "" %}
+                {% capture book_ratio %}padding-top: {{ post.book_cover_aspect_ratio }}%;{% endcapture %}
+              {% endif %}
+              <div class="flex-item">
+                <div class="book">
+                  <div class="book-cover-container">
+                    <a href="#" tabindex="0" class="cover-link"></a>
+                    <div class="book-cover" style="{{ gradient_overlay }} {{ book_ratio }}">
+                      <div class="subtitle subtitle--book previous-color-text" style="{{ book_text_color }}"></div>
+                        <div class="book-image" style="background-image:url(/assets/books/{{ post.book_title_clean }}.jpg); {{ book_multiply }} {{ book_image_opacity }} {{ book_image_greyscale }}"></div>
+                        <div class="title-container">
+                          <div class="book-title text-fill">
+                            <span class="previous-color-text" style="{{ book_text_color }}">{{ post.title_text }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div style="background-color: {{ page.book_section_shelf_color }}" class="book-shelf"></div>
+              </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

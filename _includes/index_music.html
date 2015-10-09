@@ -1,0 +1,113 @@
+<div class="page-content">
+  <div class="wrapper" style="background-color: {{ page.music_section_bg}}">
+    <div class="grid-container">
+      <div class="bookshelf-container" style="{{ page.music_section_border }}">
+        <div class="flex-container flex-container--wrap flex-container--align-center flex-container--center">
+          <div class="bookshelf-description">
+            <h2 style="color: {{ page.music_section_text_color }}" class="heading-2 heading-2--suggested-book">{{ page.music_title }}</h2>
+            <p style="color: {{ page.music_section_text_color }}">{{ page.music_desc }}</p>
+            <a style="color: {{ page.music_section_text_color }}; border-bottom-color: {{ page.music_section_link_border }}" href="{{ page.music_link_url }}">{{ page.music_link_text }}</a>
+          </div>
+          <div class="bookshelf-content flex-container--align-end">
+            <div class="flex-item">
+              <style>
+              .vhs-container{
+                position: relative;
+                width: 300px;
+              }
+
+              .vhs{
+                padding-bottom: 130%;
+              }
+
+              .vhs__box-art{
+                background-color: rgba(255, 255, 255, 0.75);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 65%, 95% 60%, 95% 40%, 100% 35%, 100% 0%);
+                clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 65%, 95% 60%, 95% 40%, 100% 35%, 100% 0%);
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background-size: cover;
+                background-position: 50% 50%;
+                overflow: hidden;
+                z-index: 10;
+              }
+
+              .vhs__box-art-image{
+                background-color: white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 65%, 95% 60%, 95% 40%, 100% 35%, 100% 0%);
+                clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 65%, 95% 60%, 95% 40%, 100% 35%, 100% 0%);
+                background-image: url(https://tedcdnpi-a.akamaihd.net/r/tedcdnpe-a.akamaihd.net/images/ted/27482e11cc3d472c501630f3f31469c1b31b3099_2880x1620.jpg?ll=1&quality=89);
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background-size: cover;
+                background-position: 50% 50%;
+                overflow: hidden;
+                z-index: 5;
+              }
+
+              .vhs__logo-container{
+                width: 1.6rem;
+                left: 0.4rem;
+                position: absolute;
+                bottom: 0.4rem;
+                z-index: 11;
+              }
+              </style>
+              <div class="vhs-container">
+                <div class="vhs">
+                  <div class="vhs__box-art-image"></div>
+                  <div class="vhs__box-art">
+                    <div class="subtitle subtitle--book previous-color-text" style="color:black;">Daniel Yellin</div>
+                    <div class="book-title text-fill" style="">
+                      <span class="previous-color-text" style="
+                          font-size: 1.5rem;
+                          line-height: 1.2;
+                          /* font-family: &quot;Helvetica&quot;; */
+                          font-weight: 600;
+                          display: block;
+                          /* top: 20px; */
+                          /* padding-top: 30px; */
+                          padding: 0 30px;
+
+                      ">A Journey through the mind of the artist.</span>
+                      </div>
+                    <div class="vhs__logo-container">
+                      {% include vhs_logo.html %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="book">
+                <div class="book-cover-container">
+                  <a href="#" tabindex="0" class="cover-link"></a>
+                  <div class="book-cover" style="{{ gradient_overlay }} {{ book_ratio }}">
+                  <div class="subtitle subtitle--book previous-color-text" style="{{ book_text_color }}">{{ post.filed_under }}</div>
+                    <div class="book-image" style="background-image:url({{ site.baseurl }}/{{ post.book_image }}); {{ book_multiply }} {{ book_image_opacity }} {{ book_image_greyscale }}"></div>
+                    <div class="title-container">
+                      <div class="book-title text-fill">
+                        <span class="previous-color-text" style="{{ book_text_color }}">{{ post.title_text }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="background-color: {{ page.music_section_shelf_color }}" class="book-shelf"></div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

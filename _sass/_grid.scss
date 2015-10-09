@@ -36,5 +36,13 @@
   .grid-half:nth-of-type(2),
   .grid-third:nth-of-type(3) {
     margin-right: 0;
+    float: right;
   }
+}
+
+.grid-container{
+  max-width: 40rem;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto 0 auto;
 }

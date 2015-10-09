@@ -8,13 +8,22 @@
   border-top: 1px solid #efefef;
 }
 
+.comment-content{
+  margin-top: 0.8rem;
+  margin-left: 3.6rem;
+
+  @media only screen and (max-width: 500px){
+    margin-top: 1.2rem;
+    margin-left: 0;
+  }
+}
+
 .comment-item-photo{
-  width: 3rem;
-  height: 3rem;
+  width: 2.8rem;
+  height: 2.8rem;
   overflow: hidden;
   border-radius: 50%;
   margin-right: 0.8rem;
-  margin-bottom: 0.8rem;
 }
 
 .form-item-photo{
@@ -37,7 +46,7 @@
 }
 
 .comment-item-body{
-  flex: 1 1 300px;
+  flex: 1 1 auto;
 }
 
 .comment-item-date{
@@ -53,21 +62,10 @@
 /* FORM */
 
 .label{
-  margin-top: 1.2rem;
   margin-bottom: 0.8rem;
   font-size: 1.2rem;
   font-weight: 300;
   display: inline-block;
-}
-
-.add-comment-button{
-  display: inline-block;
-  font-size: 1rem;
-  padding: 0.8rem 1.6rem;
-  border-radius: 5px;
-  -webkit-transition: all 0.7s, border 0.1s, background-color 0.1s, width none;
-  cursor: pointer;
-  color: white;
 }
 
 .add-comment-button--hidden{
@@ -122,6 +120,7 @@
   box-shadow: 0 0 0 1px hsl(0, 0%, 75%);
   transition: height 0s linear, padding 0.2s, box-shadow 0.3s;
   box-sizing: border-box;
+  margin-bottom: 1.6rem;
 }
 
 .input-invalid{

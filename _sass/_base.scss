@@ -1,8 +1,6 @@
 body{
-  padding: 1rem;
   background-color: #e7e7e7;
   margin: 0;
-  font-family: $base-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -22,4 +20,9 @@ body{
 
 img{
   max-width: 100%;
+}
+
+.wrapper{
+  // padding: 0 1rem;
+  // margin: 0 1rem;
 }

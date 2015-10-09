@@ -30,15 +30,17 @@ $( document ).ready(function() {
 
   function open_lightbox(source){
     bg_source = source.attr('data-lightbox');
-    $('.lightbox').css('background-image', 'url(' + bg_source + ')');
+    $('.lightbox-image').css('background-image', 'url(' + bg_source + ')');
     $('.lightbox').addClass('lightbox-visible');
+    $('body').addClass("scroll-disabled");
   }
 
   function close_lightbox(){
+    $('body').removeClass("scroll-disabled");
     $('.lightbox').removeClass('lightbox-visible');
 
     setTimeout(function(){
-      $('.lightbox').css('background-image', '');
+      $('.lightbox-image').css('background-image', '');
     }, 500);
   }
 

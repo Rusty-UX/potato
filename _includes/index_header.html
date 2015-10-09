@@ -1,0 +1,13 @@
+<div class="main-nav">
+  {% for link in site.navigation %}
+    {% assign current = nil %}
+    {% if page.url contains link.url %}
+        {% assign current = 'current' %}
+    {% endif %}
+    <span class="{{ current }}">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+    </span>
+  {% endfor %}
+</div>
+
+

@@ -1,0 +1,11 @@
+.button{
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 5px;
+  -webkit-transition: all 0.7s, border 0.1s, background-color 0.1s, width none;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-family: "Tiempos";
+}

@@ -71,7 +71,7 @@
           var post_date = ""+month+" "+formatted_day+", "+year+"";
           var post_message = $(".message").val();
 
-          $('.comment-list').prepend('<div class="comment-item"><div class="comment-item-head flex-container flex-container--wrap"><div class="comment-item-photo flex-item flex-item--no-flex">'+post_img+'</div><div class="comment-item-body flex-item"><h3 class="comment-item-name">'+post_name+'</h3><span class="comment-item-date">'+post_date+'</span><div class="comment-content">'+post_message+'</div></div></div></div>');
+          $('.comment-list').prepend('<div class="comment-item"><div class="comment-item-head flex-container flex-container--wrap"><div class="comment-item-photo flex-item flex-item--no-flex">'+post_img+'</div><div class="comment-item-body flex-item"><h3 class="heading-3 heading-3--comment-author">'+post_name+'</h3><span class="subtitle subtitle--comment-date">'+post_date+'</span></div></div><div class="comment-content">'+post_message+'</div></div>');
         }
       });
     }
@@ -158,14 +158,14 @@
     console.log(data);
     $.each(data, function(key,val){
       if(val.blog_post_id == "{{ page.post_id }}"){
-        $('.comment-list').prepend('<div class="comment-item"><div class="comment-item-head flex-container flex-container--wrap"><div class="comment-item-photo flex-item flex-item--no-flex"><img src="http://www.gravatar.com/avatar/'+val.email_hash+'?d=retro" /></div><div class="comment-item-body flex-item"><h3 class="comment-item-name">'+val.name+'</h3><span class="comment-item-date">'+val.date+'</span><div class="comment-content">'+val.message+'</div></div></div></div>');
+        $('.comment-list').prepend('<div class="comment-item"><div class="comment-item-head flex-container flex-container--wrap"><div class="comment-item-photo flex-item flex-item--no-flex"><img src="http://www.gravatar.com/avatar/'+val.email_hash+'?d=retro" /></div><div class="comment-item-body flex-item"><h3 class=" heading-3 heading-3--comment-author">'+val.name+'</h3><span class="subtitle subtitle--comment-date">'+val.date+'</span></div></div><div class="comment-content">'+val.message+'</div></div>');
       }
     });
   }
 </script>
 <a name="comment-form"></a>
 <form class="comment-form" action="http://localhost:8000/comment.php" method="post">
-  <div class="add-comment-button">Add a comment</div>
+  <div class="add-comment-button button">Add a comment</div>
   <div class="input-container group-hidden">
     <div>
       <label class="label label-name" for="name">Name</label>
@@ -188,7 +188,8 @@
     </div>
     <div>
       <input type="hidden" name="blog_post_id" value="{{page.post_id}}">
-      <input type="submit" value="Post message" id="submit"/>
+      <button class="button" id="submit">Post message</button>
     </div>
   </div>
 </form>
+<div class="comment-list"></div>

@@ -5,7 +5,7 @@
   {% include article-theme-css.html %}
 
   <body>
-    {% include header.html %}
+    {% include nav.html %}
     {% include lightbox.html %}
     <style>
       .processing-container{
@@ -13,6 +13,7 @@
         height: 200px;
         position: relative;
         z-index: 999;
+        display: none;
       }
 
       .processing-container canvas{
@@ -76,7 +77,7 @@
             requestFullScreen(element || document.documentElement);
     }
     </script>
-    <div class="article-container cover-container cover-container-dark">
+<!--     <div class="article-container cover-container cover-container-dark">
       <div class="cover-copy">
         { include article-svg-cover-title.html }
         <div class="cover-subtitle">June 2015</div>
@@ -85,18 +86,28 @@
         <div class="cover-illustration">
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="page-content">
-      <div id="readerMode">Reader mode</div>
+      <div id="readerMode" style="display:none">Reader mode</div>
       <div class="wrapper">
-        <div class="article-container">
-          {{ content }}
+        <div class="article-container grid-container">
+          <div class="article-header flex-container flex-container--justify flex-container--wrap">
+            <div class="article-header-type subtitle subtitle--article-header flex-item flex-item--no-flex">{{ page.filed_under }}</div>
+            <div class="article-header-date subtitle subtitle--article-header flex-item flex-item--no-flex">{{ page.date_human }}</div>
+          </div>
+          <h1 class="title--article title">{{ page.title }}</h1>
+          <div class="article-content">
+            {{ content }}
+          </div>
           <div class="credits"></div>
           {% include comment_template.html %}
         </div>
-        {% include article_suggested_reads.html %}
       </div>
+      {% include article_suggested_reads.html %}
     </div>
-    <div class="lightbox"></div>
+    <div class="lightbox">
+      <div class="lightbox-image"></div>
+      <div class="lightbox-bg"></div>
+    </div>
   </body>
 </html>
